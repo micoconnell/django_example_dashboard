@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      var socket = new WebSocket('ws://' + window.location.host + '/ws/service_bus/');
+
+      socket.onmessage = function(e) {
+        var data = JSON.parse(e.data);
+        var message = data['message'];
+        document.querySelector('#notifications').innerHTML += message + '<br>';
+      };
+
+      socket.onclose = function(e) {
+        console.error('WebSocket closed');
+      };
+    </script>
+  </head>
+  <body>
+    <h1>Notifications</h1>
+    <div id="notifications"></div>
+  </body>
+</html>

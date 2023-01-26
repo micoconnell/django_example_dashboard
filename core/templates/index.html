@@ -1,0 +1,733 @@
+{% extends "base.html" %}
+
+{% block title %}Seabiscuit{% endblock %}
+
+{% block links %}
+  <!-- Custom styles for this template-->
+  <link href="/static/css/sb-admin.css" rel="stylesheet">
+{% endblock %}
+{% block body %}
+<body id="page-top">
+
+  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+    <a class="navbar-brand mr-1" href="index.html">Power Application</a>
+
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+      <i class="fas fa-bars"></i>
+    </button>
+
+
+
+    <!-- Navbar -->
+    <ul class="navbar-nav ml-auto ml-md-0">
+      <li class="nav-item dropdown no-arrow mx-1">
+        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-bell fa-fw"></i>
+          <span class="badge badge-danger">9+</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown no-arrow mx-1">
+        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-envelope fa-fw"></i>
+          <span class="badge badge-danger">7</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user-circle fa-fw"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+          <a class="dropdown-item" href="#">Settings</a>
+          <a class="dropdown-item" href="#">Activity Log</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+        </div>
+      </li>
+    </ul>
+
+  </nav>
+
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Pages</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <h6 class="dropdown-header">Login Screens:</h6>
+          <a class="dropdown-item" href="login.html">Login</a>
+          <a class="dropdown-item" href="register.html">Register</a>
+          <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
+          <div class="dropdown-divider"></div>
+          <h6 class="dropdown-header">Other Pages:</h6>
+          <a class="dropdown-item" href="404.html">404 Page</a>
+          <a class="dropdown-item" href="blank.html">Blank Page</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="charts.html">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Charts</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Outages</span></a>
+      </li>
+    </ul>
+
+    <div id="content-wrapper">
+
+      <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="#">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active">Overview</li>
+        </ol>
+
+        <!-- Icon Cards-->
+
+
+        <!-- DataTables Example -->
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-table"></i>
+            Seven Day Outages</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="60%" cellspacing="5">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>HE01</th>
+                    <th>HE02</th>
+                    <th>HE03</th>
+                    <th>HE04</th>
+                    <th>HE05</th>
+                    <th>HE06</th>
+                    <th>HE07</th>
+                    <th>HE08</th>
+                    <th>HE09</th>
+                    <th>HE10</th>
+                    <th>HE11</th>
+                    <th>HE12</th>
+                    <th>HE13</th>
+                    <th>HE14</th>
+                    <th>HE15</th>
+                    <th>HE16</th>
+                    <th>HE17</th>
+                    <th>HE18</th>
+                    <th>HE19</th>
+                    <th>HE20</th>
+                    <th>HE21</th>
+                    <th>HE22</th>
+                    <th>HE23</th>
+                    <th>HE24</th>
+                    <th>Select</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                
+                  <form method="post">
+      
+                    {% for gas in gas %}
+                    <tr>
+                        <td>{{gas.0.Date}}</td>
+                        <td>{{gas.0.Type}}</td>
+                        <td>{{gas.0.HE01}}</td>
+                        <td>{{gas.0.HE02}}</td>
+                        <td>{{gas.0.HE03}}</td>
+                        <td>{{gas.0.HE04}}</td>
+                        <td>{{gas.0.HE05}}</td>
+                        <td>{{gas.0.HE06}}</td>
+                        <td>{{gas.0.HE07}}</td>
+                        <td>{{gas.0.HE08}}</td>
+                        <td>{{gas.0.HE09}}</td>
+                        <td>{{gas.0.HE10}}</td>
+                        <td>{{gas.0.HE11}}</td>
+                        <td>{{gas.0.HE12}}</td>
+                        <td>{{gas.0.HE13}}</td>
+                        <td>{{gas.0.HE14}}</td>
+                        <td>{{gas.0.HE15}}</td>
+                        <td>{{gas.0.HE16}}</td>
+                        <td>{{gas.0.HE17}}</td>
+                        <td>{{gas.0.HE18}}</td>
+                        <td>{{gas.0.HE19}}</td>
+                        <td>{{gas.0.HE20}}</td>
+                        <td>{{gas.0.HE21}}</td>
+                        <td>{{gas.0.HE22}}</td>
+                        <td>{{gas.0.HE23}}</td>
+                        <td>{{gas.0.HE24}}</td>
+                        <td></td>
+                        <td><input class="form-check-input" type="checkbox" value={{gas.0.blobname}} id="python" name="gas"></td>
+                       </div>
+                    </tr>
+                    {% endfor %}
+                    {% for coal in coal %}
+                    <tr>
+                        <td>{{coal.0.Date}}</td>
+                        <td>{{coal.0.Type}}</td>
+                        <td>{{coal.0.HE01}}</td>
+                        <td>{{coal.0.HE02}}</td>
+                        <td>{{coal.0.HE03}}</td>
+                        <td>{{coal.0.HE04}}</td>
+                        <td>{{coal.0.HE05}}</td>
+                        <td>{{coal.0.HE06}}</td>
+                        <td>{{coal.0.HE07}}</td>
+                        <td>{{coal.0.HE08}}</td>
+                        <td>{{coal.0.HE09}}</td>
+                        <td>{{coal.0.HE10}}</td>
+                        <td>{{coal.0.HE11}}</td>
+                        <td>{{coal.0.HE12}}</td>
+                        <td>{{coal.0.HE13}}</td>
+                        <td>{{coal.0.HE14}}</td>
+                        <td>{{coal.0.HE15}}</td>
+                        <td>{{coal.0.HE16}}</td>
+                        <td>{{coal.0.HE17}}</td>
+                        <td>{{coal.0.HE18}}</td>
+                        <td>{{coal.0.HE19}}</td>
+                        <td>{{coal.0.HE20}}</td>
+                        <td>{{coal.0.HE21}}</td>
+                        <td>{{coal.0.HE22}}</td>
+                        <td>{{coal.0.HE23}}</td>
+                        <td>{{coal.0.HE24}}</td>
+                        <td></td>
+                        <td><input class="form-check-input" type="checkbox" value={{coal.0.blobname}} id="python" name="coal"></td>
+                         </div>
+                    </tr>
+                    {% endfor %}
+                    {% for hydro in hydro %}
+                    <tr>
+                        <td>{{hydro.0.Date}}</td>
+                        <td>{{hydro.0.Type}}</td>
+                        <td>{{hydro.0.HE01}}</td>
+                        <td>{{hydro.0.HE02}}</td>
+                        <td>{{hydro.0.HE03}}</td>
+                        <td>{{hydro.0.HE04}}</td>
+                        <td>{{hydro.0.HE05}}</td>
+                        <td>{{hydro.0.HE06}}</td>
+                        <td>{{hydro.0.HE07}}</td>
+                        <td>{{hydro.0.HE08}}</td>
+                        <td>{{hydro.0.HE09}}</td>
+                        <td>{{hydro.0.HE10}}</td>
+                        <td>{{hydro.0.HE11}}</td>
+                        <td>{{hydro.0.HE12}}</td>
+                        <td>{{hydro.0.HE13}}</td>
+                        <td>{{hydro.0.HE14}}</td>
+                        <td>{{hydro.0.HE15}}</td>
+                        <td>{{hydro.0.HE16}}</td>
+                        <td>{{hydro.0.HE17}}</td>
+                        <td>{{hydro.0.HE18}}</td>
+                        <td>{{hydro.0.HE19}}</td>
+                        <td>{{hydro.0.HE20}}</td>
+                        <td>{{hydro.0.HE21}}</td>
+                        <td>{{hydro.0.HE22}}</td>
+                        <td>{{hydro.0.HE23}}</td>
+                        <td>{{hydro.0.HE24}}</td>
+                        <td></td>
+                        <td><input class="form-check-input" type="checkbox" value={{hydro.0.blobname}} id="python" name="hydro"></td>
+                         </div>
+                    </tr>
+                    {% endfor %}
+                    {% for solar in solar %}
+                    <tr>
+                        <td>{{solar.0.Date}}</td>
+                        <td>{{solar.0.Type}}</td>
+                        <td>{{solar.0.HE01}}</td>
+                        <td>{{solar.0.HE02}}</td>
+                        <td>{{solar.0.HE03}}</td>
+                        <td>{{solar.0.HE04}}</td>
+                        <td>{{solar.0.HE05}}</td>
+                        <td>{{solar.0.HE06}}</td>
+                        <td>{{solar.0.HE07}}</td>
+                        <td>{{solar.0.HE08}}</td>
+                        <td>{{solar.0.HE09}}</td>
+                        <td>{{solar.0.HE10}}</td>
+                        <td>{{solar.0.HE11}}</td>
+                        <td>{{solar.0.HE12}}</td>
+                        <td>{{solar.0.HE13}}</td>
+                        <td>{{solar.0.HE14}}</td>
+                        <td>{{solar.0.HE15}}</td>
+                        <td>{{solar.0.HE16}}</td>
+                        <td>{{solar.0.HE17}}</td>
+                        <td>{{solar.0.HE18}}</td>
+                        <td>{{solar.0.HE19}}</td>
+                        <td>{{solar.0.HE20}}</td>
+                        <td>{{solar.0.HE21}}</td>
+                        <td>{{solar.0.HE22}}</td>
+                        <td>{{solar.0.HE23}}</td>
+                        <td>{{solar.0.HE24}}</td>
+                        <td></td>
+                        <td><input class="form-check-input" type="checkbox" value={{solar.0.blobname}} id="python" name="solar"></td>
+                         </div>
+                    </tr>
+                    {% endfor %}
+                    {% for wind in wind %}
+                    <tr>
+                        <td>{{wind.0.Date}}</td>
+                        <td>{{wind.0.Type}}</td>
+                        <td>{{wind.0.HE01}}</td>
+                        <td>{{wind.0.HE02}}</td>
+                        <td>{{wind.0.HE03}}</td>
+                        <td>{{wind.0.HE04}}</td>
+                        <td>{{wind.0.HE05}}</td>
+                        <td>{{wind.0.HE06}}</td>
+                        <td>{{wind.0.HE07}}</td>
+                        <td>{{wind.0.HE08}}</td>
+                        <td>{{wind.0.HE09}}</td>
+                        <td>{{wind.0.HE10}}</td>
+                        <td>{{wind.0.HE11}}</td>
+                        <td>{{wind.0.HE12}}</td>
+                        <td>{{wind.0.HE13}}</td>
+                        <td>{{wind.0.HE14}}</td>
+                        <td>{{wind.0.HE15}}</td>
+                        <td>{{wind.0.HE16}}</td>
+                        <td>{{wind.0.HE17}}</td>
+                        <td>{{wind.0.HE18}}</td>
+                        <td>{{wind.0.HE19}}</td>
+                        <td>{{wind.0.HE20}}</td>
+                        <td>{{wind.0.HE21}}</td>
+                        <td>{{wind.0.HE22}}</td>
+                        <td>{{wind.0.HE23}}</td>
+                        <td>{{wind.0.HE24}}</td>
+                        <td></td>
+                        <td><input class="form-check-input" type="checkbox" value={{wind.0.blobname}} id="python" name="wind"></td>
+                         </div>
+                    </tr>
+                    {% endfor %}
+                    {% for dual in dual %}
+                    <tr>
+                        <td>{{dual.0.Date}}</td>
+                        <td>{{dual.0.Type}}</td>
+                        <td>{{dual.0.HE01}}</td>
+                        <td>{{dual.0.HE02}}</td>
+                        <td>{{dual.0.HE03}}</td>
+                        <td>{{dual.0.HE04}}</td>
+                        <td>{{dual.0.HE05}}</td>
+                        <td>{{dual.0.HE06}}</td>
+                        <td>{{dual.0.HE07}}</td>
+                        <td>{{dual.0.HE08}}</td>
+                        <td>{{dual.0.HE09}}</td>
+                        <td>{{dual.0.HE10}}</td>
+                        <td>{{dual.0.HE11}}</td>
+                        <td>{{dual.0.HE12}}</td>
+                        <td>{{dual.0.HE13}}</td>
+                        <td>{{dual.0.HE14}}</td>
+                        <td>{{dual.0.HE15}}</td>
+                        <td>{{dual.0.HE16}}</td>
+                        <td>{{dual.0.HE17}}</td>
+                        <td>{{dual.0.HE18}}</td>
+                        <td>{{dual.0.HE19}}</td>
+                        <td>{{dual.0.HE20}}</td>
+                        <td>{{dual.0.HE21}}</td>
+                        <td>{{dual.0.HE22}}</td>
+                        <td>{{dual.0.HE23}}</td>
+                        <td>{{dual.0.HE24}}</td>
+                        <td></td>
+                        <td><input class="form-check-input" type="checkbox" value={{dual.0.blobname}} id="python" name="dual"></td>
+                         </div>
+                    </tr>
+                    {% endfor %}
+                    {% for other in other %}
+                    <tr>
+                        <td>{{other.0.Date}}</td>
+                        <td>{{other.0.Type}}</td>
+                        <td>{{other.0.HE01}}</td>
+                        <td>{{other.0.HE02}}</td>
+                        <td>{{other.0.HE03}}</td>
+                        <td>{{other.0.HE04}}</td>
+                        <td>{{other.0.HE05}}</td>
+                        <td>{{other.0.HE06}}</td>
+                        <td>{{other.0.HE07}}</td>
+                        <td>{{other.0.HE08}}</td>
+                        <td>{{other.0.HE09}}</td>
+                        <td>{{other.0.HE10}}</td>
+                        <td>{{other.0.HE11}}</td>
+                        <td>{{other.0.HE12}}</td>
+                        <td>{{other.0.HE13}}</td>
+                        <td>{{other.0.HE14}}</td>
+                        <td>{{other.0.HE15}}</td>
+                        <td>{{other.0.HE16}}</td>
+                        <td>{{other.0.HE17}}</td>
+                        <td>{{other.0.HE18}}</td>
+                        <td>{{other.0.HE19}}</td>
+                        <td>{{other.0.HE20}}</td>
+                        <td>{{other.0.HE21}}</td>
+                        <td>{{other.0.HE22}}</td>
+                        <td>{{other.0.HE23}}</td>
+                        <td>{{other.0.HE24}}</td>
+                        <td></td>
+                        <td><input class="form-check-input" type="checkbox" value={{other.0.blobname}} id="python" name="other"></td>
+                         </div>
+                    </tr>
+                    {% endfor %}
+                    {% for storage in storage %}
+                    <tr>
+                        <td>{{storage.0.Date}}</td>
+                        <td>{{storage.0.Type}}</td>
+                        <td>{{storage.0.HE01}}</td>
+                        <td>{{storage.0.HE02}}</td>
+                        <td>{{storage.0.HE03}}</td>
+                        <td>{{storage.0.HE04}}</td>
+                        <td>{{storage.0.HE05}}</td>
+                        <td>{{storage.0.HE06}}</td>
+                        <td>{{storage.0.HE07}}</td>
+                        <td>{{storage.0.HE08}}</td>
+                        <td>{{storage.0.HE09}}</td>
+                        <td>{{storage.0.HE10}}</td>
+                        <td>{{storage.0.HE11}}</td>
+                        <td>{{storage.0.HE12}}</td>
+                        <td>{{storage.0.HE13}}</td>
+                        <td>{{storage.0.HE14}}</td>
+                        <td>{{storage.0.HE15}}</td>
+                        <td>{{storage.0.HE16}}</td>
+                        <td>{{storage.0.HE17}}</td>
+                        <td>{{storage.0.HE18}}</td>
+                        <td>{{storage.0.HE19}}</td>
+                        <td>{{storage.0.HE20}}</td>
+                        <td>{{storage.0.HE21}}</td>
+                        <td>{{storage.0.HE22}}</td>
+                        <td>{{storage.0.HE23}}</td>
+                        <td>{{storage.0.HE24}}</td>
+                        <td></td>
+                        <td><input class="form-check-input" type="checkbox" value={{storage.0.blobname}} id="python" name="storage"></td>
+                         </div>
+                    </tr>
+                    {% endfor %}
+                    <button type="submit">Submit</button>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fas fa-table"></i>
+              90 Day Outages</div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  
+                 
+                      <th>Date</th>
+                      <th>Type</th>
+                      <th>Volume</th>
+                      <th>Submit</th>
+                      
+
+                      
+                
+                  
+                    <form method="post">
+                      <tbody>
+                      
+                      {% for gas90 in gas90 %}
+                          <td>{{gas90.0.Date}}</td>
+                          <td>Gas</td>
+                          <td>{{gas90.0.Gas}}</td>
+                          <td><input class="form-check-input" type="checkbox" value={{gas90.0.blobname}} id="python" name="gas90"></td>
+                        </div>
+                      </tr>
+                      {% endfor %}
+                  </tbody>
+                    <tbody> 
+                      {% for dual90 in dual90 %}
+
+                          <td>{{dual90.0.Date}}</td>
+                          <td>Dual</td>
+                          <td>{{dual90.0.Dual}}</td>
+                          <td><input class="form-check-input" type="checkbox" value={{dual90.0.blobname}} id="python" name="dual90"></td>
+                        </div>
+                      </tr>
+                      {% endfor %}
+                  </tbody> 
+                  <tbody> 
+                      {% for hydro90 in hydro90 %}
+
+                      <td>{{hydro90.0.Date}}</td>
+                      <td>Hydro</td>
+                      <td>{{hydro90.0.Hydro}}</td>
+                      <td><input class="form-check-input" type="checkbox" value={{hydro90.0.blobname}} id="python" name="hydro90"></td>
+                    </div>
+                  </tr>
+                      {% endfor %} 
+                  </tbody>   
+                  <tbody> 
+                      {% for coal in coal90 %}
+                      <td>{{coal90.0.Date}}</td>
+                      <th>Coal</th>
+                      <td>{{coal90.0.Coal}}</td>
+                      <td><input class="form-check-input" type="checkbox" value={{coal90.0.blobname}} id="python" name="coal90"></td>
+                    </div>
+                  </tr>
+                      {% endfor %}  
+                    </tbody>
+                    <tbody> 
+                      {% for storage90 in storage90 %}
+                      <td>{{storage90.0.Date}}</td>
+                      <th>Storage</th>
+                      <td>{{storage90.0.Coal}}</td>
+                      <td><input class="form-check-input" type="checkbox" value={{storage90.0.blobname}} id="python" name="storage90"></td>
+                    </div>
+                  </tr>
+                      {% endfor %}
+                    </tbody> 
+                    <tbody> 
+                      {% for wind90 in wind90 %}
+                      <td>{{wind90.0.Date}}</td>
+                      <th>Wind</th>
+                      <td>{{wind90.0.wind}}</td>
+                      <td><input class="form-check-input" type="checkbox" value={{wind90.0.blobname}} id="python" name="wind90"></td>
+                    </div>
+                  </tr>
+                      {% endfor %}
+                    </tbody> 
+                    <tbody> 
+                   
+                      {% for solar90 in solar90 %}
+                      <td>{{solar90.0.Date}}</td>
+                      <th>Solar</th>
+                      <td>{{solar90.0.wind}}</td>
+                      <td><input class="form-check-input" type="checkbox" value={{solar90.0.blobname}} id="python" name="solar90"></td>
+                    </div>
+                  </tr>
+                      {% endfor %}
+                    </tbody> 
+                    <tbody> 
+                    
+                      {% for other90 in other90 %}
+                      <td>{{other90.0.Date}}</td>
+                      <th>Other</th>
+                      <td>{{other90.0.other}}</td>
+                      <td><input class="form-check-input" type="checkbox" value={{other90.0.blobname}} id="python" name="other90"></td>
+                    </div>
+                  </tr>
+                      {% endfor %}  
+                    </tbody>  
+                  
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-table"></i>
+            Monthly Outages</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">           
+                  
+                 
+                <th>Date</th>
+                <th>Type</th>
+                <th>Volume</th>
+                <th>Submit</th>
+                
+
+                
+          
+            
+              <form method="post">
+                <tbody>
+                
+                {% for gas90 in gasMONTHLY %}
+                    <td>{{gasMONTHLY.0.Date}}</td>
+                    <td>Gas</td>
+                    <td>{{gasMONTHLY.0.Gas}}</td>
+                    <td><input class="form-check-input" type="checkbox" value={{gasMONTHLY.0.blobname}} id="python" name="gasMONTHLY"></td>
+                  </div>
+                </tr>
+                {% endfor %}
+            </tbody>
+              <tbody> 
+                {% for dual90 in dualMONTHLY %}
+
+                    <td>{{dualMONTHLY.0.Date}}</td>
+                    <td>Dual</td>
+                    <td>{{dualMONTHLY.0.Dual}}</td>
+                    <td><input class="form-check-input" type="checkbox" value={{dualMONTHLY.0.blobname}} id="python" name="dualMONTHLY"></td>
+                  </div>
+                </tr>
+                {% endfor %}
+            </tbody> 
+            <tbody> 
+                {% for hydro90 in hydroMONTHLY %}
+
+                <td>{{hydroMONTHLY.0.Date}}</td>
+                <td>Hydro</td>
+                <td>{{hydroMONTHLY.0.Hydro}}</td>
+                <td><input class="form-check-input" type="checkbox" value={{hydroMONTHLY.0.blobname}} id="python" name="hydroMONTHLY"></td>
+              </div>
+            </tr>
+                {% endfor %} 
+            </tbody>   
+            <tbody> 
+                {% for coal in coalMONTHLY %}
+                <td>{{coalMONTHLY.0.Date}}</td>
+                <th>Coal</th>
+                <td>{{coalMONTHLY.0.Coal}}</td>
+                <td><input class="form-check-input" type="checkbox" value={{coalMONTHLY.0.blobname}} id="python" name="coalMONTHLY"></td>
+              </div>
+            </tr>
+                {% endfor %}  
+              </tbody>
+              <tbody> 
+                {% for storage90 in storageMONTHLY %}
+                <td>{{storageMONTHLY.0.Date}}</td>
+                <th>Storage</th>
+                <td>{{storageMONTHLY.0.Coal}}</td>
+                <td><input class="form-check-input" type="checkbox" value={{storageMONTHLY.0.blobname}} id="python" name="storageMONTHLY"></td>
+              </div>
+            </tr>
+                {% endfor %}
+              </tbody> 
+              <tbody> 
+                {% for wind90 in windMONTHLY %}
+                <td>{{windMONTHLY.0.Date}}</td>
+                <th>Wind</th>
+                <td>{{windMONTHLY.0.wind}}</td>
+                <td><input class="form-check-input" type="checkbox" value={{windMONTHLY.0.blobname}} id="python" name="windMONTHLY"></td>
+              </div>
+            </tr>
+                {% endfor %}
+              </tbody> 
+              <tbody> 
+             
+                {% for solar90 in solarMONTHLY %}
+                <td>{{solarMONTHLY.0.Date}}</td>
+                <th>Solar</th>
+                <td>{{solarMONTHLY.0.wind}}</td>
+                <td><input class="form-check-input" type="checkbox" value={{solarMONTHLY.0.blobname}} id="python" name="solarMONTHLY"></td>
+              </div>
+            </tr>
+                {% endfor %}
+              </tbody> 
+              <tbody> 
+              
+                {% for other90 in otherMONTHLY %}
+                <td>{{otherMONTHLY.0.Date}}</td>
+                <th>Other</th>
+                <td>{{otherMONTHLY.0.other}}</td>
+                <td><input class="form-check-input" type="checkbox" value={{otherMONTHLY.0.blobname}} id="python" name="otherMONTHLY"></td>
+              </div>
+            </tr>
+                {% endfor %}  
+              </tbody>  
+            
+            </tbody>
+          </table>
+        </div>
+      </div>
+          
+        </div>
+
+      </div>
+      <!-- /.container-fluid -->
+
+
+
+    </div>
+    <!-- /.content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="/static/vendor/jquery/jquery.min.js"></script>
+  <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="/static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
+  <script src="/static/vendor/chart.js/Chart.min.js"></script>
+  <script src="/static/vendor/datatables/jquery.dataTables.js"></script>
+  <script src="/static/vendor/datatables/dataTables.bootstrap4.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="/static/js/sb-admin.min.js"></script>
+
+  <!-- Demo scripts for this page-->
+  <script src="/static/js/demo/datatables-demo.js"></script>
+  <script src="/static/js/demo/chart-area-demo.js"></script>
+
+</body>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Getting server updates</h1>
+<div id="result"></div>
+
+<script>
+if(typeof(EventSource) !== "undefined") {
+  var source = new EventSource("stream/");
+  source.onmessage = function(event) {
+    document.getElementById("result").innerHTML += event.data + "<br>";
+  };
+} else {
+  document.getElementById("result").innerHTML = "Sorry, your browser does not support server-sent events...";
+}
+</script>
+
+</body>
+</html>
+{% endblock %}
